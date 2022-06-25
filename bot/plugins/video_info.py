@@ -32,8 +32,8 @@ async def video_info_handler(c: Client, m: Message):
     await add_user_to_database(c, m)
     if filesystem_free() < 5000000000:
         return await m.reply_text(
-            "Because of less server space I can't do this task right now !!\n\n"
-            "Please try again after some time or use @AHToolsBot to do same task.",
+            "𝐵𝑒𝑐𝑎𝑢𝑠𝑒 𝑜𝑓 𝑙𝑒𝑠𝑠 𝑠𝑒𝑟𝑣𝑒𝑟 𝑠𝑝𝑎𝑐𝑒 𝐼 𝑐𝑎𝑛'𝑡 𝑑𝑜 𝑡ℎ𝑖𝑠 𝑡𝑎𝑠𝑘 𝑟𝑖𝑔ℎ𝑡 𝑛𝑜𝑤 !!\n\n"
+            "𝑃𝑙𝑒𝑎𝑠𝑒 𝑡𝑟𝑦 𝑎𝑔𝑎𝑖𝑛 𝑎𝑓𝑡𝑒𝑟 𝑠𝑜𝑚𝑒 𝑡𝑖𝑚𝑒 𝑜𝑟 𝑢𝑠𝑒 @MHFileRBoT 𝑡𝑜 𝑑𝑜 𝑠𝑎𝑚𝑒 𝑡𝑎𝑠𝑘.",
             True
         )
     if (not m.reply_to_message) or (len(m.command) == 1):
@@ -104,10 +104,10 @@ async def video_info_handler(c: Client, m: Message):
         middle_cmd += f" {shlex.quote(dl_loc + new_file_name)}"
         await editable.edit("Please Wait ...\n\nProcessing Video ...")
         await execute(middle_cmd)
-        await editable.edit("Renamed Successfully!")
+        await editable.edit("𝑅𝑒𝑛𝑎𝑚𝑒𝑑 𝑆𝑢𝑐𝑐𝑒𝑠𝑠𝑓𝑢𝑙𝑙𝑦!")
     except:
         # Clean Up
-        await editable.edit("Failed to process video!")
+        await editable.edit("𝐹𝑎𝑖𝑙𝑒𝑑 𝑡𝑜 𝑝𝑟𝑜𝑐𝑒𝑠𝑠 𝑣𝑖𝑑𝑒𝑜!")
         await rm_dir(root_dl_loc)
         return
     try: os.remove(the_media)
