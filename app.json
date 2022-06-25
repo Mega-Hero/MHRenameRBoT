@@ -1,5 +1,5 @@
 {
-    "name": "Telegram Files Rename Bot",
+    "name": "MH Rename Bot",
     "description": "A Very Simple Telegram Files Rename Bot by @AbirHasan2005",
     "keywords": [
         "telegram",
@@ -7,9 +7,9 @@
         "rename",
         "bot"
     ],
-    "repository": "https://github.com/AbirHasan2005/Rename-Bot",
-    "website": "https://abirhasan.wtf",
-    "success_url": "https://t.me/AH_RenameBot",
+    "repository": "https://github.com/MutyalaHarshith/MHRenameRBoT",
+    "website": "https://github.com/MutyalaHarshith",
+    "success_url": "https://github.com/MutyalaHarshith/MHRenameRBoT",
     "env": {
         "API_ID": {
             "description": "Get this value from my.telegram.org or @TeleORG_Bot"
@@ -34,7 +34,7 @@
         "BROADCAST_AS_COPY": {
             "description": "Broadcast as Copy or with Forward Tag. Value should be True/False.",
             "required": false,
-            "value": "False"
+            "value": "True"
         },
         "OWNER_ID": {
             "description": "Bot Owner UserID"
