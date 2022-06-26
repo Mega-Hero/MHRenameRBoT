@@ -21,37 +21,37 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
     elif cb.data == "showThumbnail":
         thumbnail = await db.get_thumbnail(cb.from_user.id)
         if not thumbnail:
-            await cb.answer("You didn't set any custom thumbnail!", show_alert=True)
+            await cb.answer("𝑌𝑜𝑢 𝑑𝑖𝑑𝑛'𝑡 𝑠𝑒𝑡 𝑎𝑛𝑦 𝑐𝑢𝑠𝑡𝑜𝑚 𝑡ℎ𝑢𝑚𝑏𝑛𝑎𝑖𝑙!", show_alert=True)
         else:
             await cb.answer()
-            await c.send_photo(cb.message.chat.id, thumbnail, "Custom Thumbnail",
+            await c.send_photo(cb.message.chat.id, thumbnail, "𝑪𝒖𝒔𝒕𝒐𝒎 𝑻𝒉𝒖𝒎𝒃𝒏𝒂𝒊𝒍",
                                reply_markup=types.InlineKeyboardMarkup([[
                                    types.InlineKeyboardButton("Delete Thumbnail",
                                                               callback_data="deleteThumbnail")
                                ]]))
     elif cb.data == "deleteThumbnail":
         await db.set_thumbnail(cb.from_user.id, None)
-        await cb.answer("Okay, I deleted your custom thumbnail. Now I will apply default thumbnail.", show_alert=True)
+        await cb.answer("Oᴋᴀʏ, I ᴅᴇʟᴇᴛᴇᴅ ʏᴏᴜʀ ᴄᴜsᴛᴏᴍ ᴛʜᴜᴍʙɴᴀɪʟ. Nᴏᴡ I ᴡɪʟʟ ᴀᴘᴘʟʏ ᴅᴇғᴀᴜʟᴛ ᴛʜᴜᴍʙɴᴀɪʟ.", show_alert=True)
         await cb.message.delete(True)
     elif cb.data == "setThumbnail":
         await cb.answer()
-        await cb.message.edit("Send me any photo to set that as custom thumbnail.\n\n"
-                              "Press /cancel to cancel process.")
+        await cb.message.edit("𝑆𝑒𝑛𝑑 𝑚𝑒 𝑎𝑛𝑦 𝑝ℎ𝑜𝑡𝑜 𝑡𝑜 𝑠𝑒𝑡 𝑡ℎ𝑎𝑡 𝑎𝑠 𝑐𝑢𝑠𝑡𝑜𝑚 𝑡ℎ𝑢𝑚𝑏𝑛𝑎𝑖𝑙.\n\n"
+                              "𝙿𝚛𝚎𝚜𝚜 /cancel 𝚝𝚘 𝚌𝚊𝚗𝚌𝚎𝚕 𝚙𝚛𝚘𝚌𝚎𝚜𝚜.")
         from_user_thumb: "types.Message" = await c.listen(cb.message.chat.id)
         if not from_user_thumb.photo:
-            await cb.message.edit("Process Cancelled!")
+            await cb.message.edit("ℙ𝕣𝕠𝕔𝕖𝕤𝕤 ℂ𝕒𝕟𝕔𝕖𝕝𝕝𝕖𝕕!")
             return await from_user_thumb.continue_propagation()
         else:
             await db.set_thumbnail(cb.from_user.id, from_user_thumb.photo.file_id)
-            await cb.message.edit("Okay!\n"
-                                  "Now I will apply this thumbnail to next uploads.",
+            await cb.message.edit("OKᗩY!\n"
+                                  "𝐍𝐨𝐰 𝐈 𝐰𝐢𝐥𝐥 𝐚𝐩𝐩𝐥𝐲 𝐭𝐡𝐢𝐬 𝐭𝐡𝐮𝐦𝐛𝐧𝐚𝐢𝐥 𝐭𝐨 𝐧𝐞𝐱𝐭 𝐮𝐩𝐥𝐨𝐚𝐝𝐬.",
                                   reply_markup=types.InlineKeyboardMarkup(
                                       [[types.InlineKeyboardButton("Show Settings",
                                                                    callback_data="showSettings")]]
                                   ))
     elif cb.data == "setCustomCaption":
         await cb.answer()
-        await cb.message.edit("Okay,\n"
+        await cb.message.edit("OKᗩY,\n"
                               "Send me your custom caption.\n\n"
                               "Press /cancel to cancel process.")
         user_input_msg: "types.Message" = await c.listen(cb.message.chat.id)
