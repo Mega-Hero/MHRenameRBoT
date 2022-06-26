@@ -24,12 +24,12 @@ async def status_handler(_, m: Message):
     disk_usage = psutil.disk_usage('/').percent
     total_users = await db.total_users_count()
     await m.reply_text(
-        text=f"**Total Disk Space:** {total} \n"
-             f"**Used Space:** {used}({disk_usage}%) \n"
-             f"**Free Space:** {free} \n"
-             f"**CPU Usage:** {cpu_usage}% \n"
-             f"**RAM Usage:** {ram_usage}%\n\n"
-             f"**Total Users in DB:** `{total_users}`",
+        text=f"**𝚃𝚘𝚝𝚊𝚕 𝙳𝚒𝚜𝚔 𝚂𝚙𝚊𝚌𝚎:** {total} \n"
+             f"**𝑈𝑠𝑒𝑑 𝑆𝑝𝑎𝑐𝑒:** {used}({disk_usage}%) \n"
+             f"**Fʀᴇᴇ Sᴘᴀᴄᴇ:** {free} \n"
+             f"**ᑕᑭᑌ ᑌՏᗩᘜᗴ:** {cpu_usage}% \n"
+             f"**ᖇᗩᗰ ᑌՏᗩᘜᗴ:** {ram_usage}%\n\n"
+             f"**𝐓𝐨𝐭𝐚𝐥 𝐔𝐬𝐞𝐫𝐬 𝐢𝐧 𝐃𝐁:** `{total_users}`",
         parse_mode="Markdown",
         quote=True
     )
